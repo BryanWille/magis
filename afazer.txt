@@ -1,0 +1,13 @@
+Login:
+    Validar segurança de senha.
+        Dupla confirmação.
+    Validar segurança de email.
+
+Plataforma:
+    Cadastrar materias.
+    Cadastrar perguntas.
+        Quetão.
+        alternativas(Sendo apenas uma correta).
+        CRUD
+    Criar Ranking.
+        Categorias. 
