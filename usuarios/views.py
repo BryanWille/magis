@@ -1,52 +1,57 @@
-from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.contrib.auth import authenticate
-from django.contrib.auth import login as logar
-from django.contrib.auth.decorators import login_required
 
-def cadastro(request):
-    if request.method == 'GET':
-        return render(request, "usuarios\cadastro.html")
-    else:
-        usuario = request.POST.get("usuario")
-        email = request.POST.get("email")
-        senha = request.POST.get("senha")
-        
-        user = User.objects.filter(username=usuario).first()
+from .models import Usuario
+from django.shortcuts import redirect
+from hashlib import sha256
 
-        if user:
-            return HttpResponse("Já existe um usuário com esse nome.")
-
-        user = User.objects.create_user(username=usuario, email=email, password=senha)
-        user.save()
-
-        return HttpResponse("Usuário cadastrado com sucesso.")
-        
 
 def login(request):
-    if request.method == 'GET':
-        return render(request, "usuarios\login.html")
-    else:
-        usuario = request.POST.get("usuario")
-        senha = request.POST.get("senha")
-        
-        user = authenticate(username=usuario, password=senha)
+    status = request.GET.get('status')
+    return render(request, "usuarios\login.html", {"status":status})
 
-        if user:
-            logar(request, user)
-            return HttpResponse("Autenticado com sucesso!")
-        else:
-            return HttpResponse("Usuario ou senha inválido(s)")
+def cadastro(request):
+    status = request.GET.get('status')
+    return render(request, "usuarios\cadastro.html", {"status":status})
 
 
-@login_required(login_url="/auth/login/")
-def plataforma(request): #Forma mais rápida
-        return HttpResponse("plataforma")
+def valida_cadastro(request):
+    nome = request.POST.get('nome')
+    senha = request.POST.get('senha')
+    email = request.POST.get('email')
+
+    usuario = Usuario.objects.filter(email = email)
+    if len(nome.strip()) == 0 or len(email.strip()) == 0:
+        return redirect('/auth/cadastro/?status=1')
+
+    if len(senha) <= 8:
+        return redirect('/auth/cadastro/?status=2')
+
+    if len(usuario) > 0:
+        return redirect('/auth/cadastro/?status=3')
+
+    try:
+        senha = sha256(senha.encode()).hexdigest()
+        usuario = Usuario(nome=nome, email=email, senha=senha)
+        usuario.save()
+        return redirect('/auth/cadastro/?status=0')
+    except:
+        redirect('/auth/cadastro/?status=4')
+
+def valida_login(request):
+    email = request.POST.get('email')
+    senha = request.POST.get('senha')
+    senha = sha256(senha.encode()).hexdigest()
+
+    usuario = Usuario.objects.filter(email = email).filter(senha = senha)
+
+    if len(usuario) == 0:
+        return redirect('/auth/login/?status=1')
+    elif len(usuario) > 0:
+        request.session['usuario'] = usuario[0].id
+        return redirect(f'/quests/?id_ususario={request.session["usuario"]}')
 
 
-#def plataforma(request): #teste
-#    if request.user.is_authenticated:
-#        return HttpResponse("Plataforma")
-#    else:
-#        return HttpResponse("Você precisa estar logado")
+def sair(request):
+    request.session.flush()
+    return redirect('/auth/login')
+
