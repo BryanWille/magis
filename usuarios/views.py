@@ -1,3 +1,4 @@
+from django.forms import EmailField
 from django.shortcuts import render
 
 from .models import Usuario
@@ -19,14 +20,14 @@ def valida_cadastro(request):
     senha = request.POST.get('senha')
     email = request.POST.get('email')
 
-    usuario = Usuario.objects.filter(email = email)
+    existe = Usuario.objects.filter(email = email)
     if len(nome.strip()) == 0 or len(email.strip()) == 0:
         return redirect('/auth/cadastro/?status=1')
 
     if len(senha) <= 8:
         return redirect('/auth/cadastro/?status=2')
 
-    if len(usuario) > 0:
+    if len(existe) > 0:
         return redirect('/auth/cadastro/?status=3')
 
     try:
