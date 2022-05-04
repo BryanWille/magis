@@ -34,6 +34,7 @@ def valida_cadastro(request):
         usuario = Usuario(nome=nome, email=email, senha=senha)
         usuario.save()
         return redirect('/auth/cadastro/?status=0')
+        
     except:
         redirect('/auth/cadastro/?status=4')
 
