@@ -3,6 +3,6 @@ from .views import index, quests
 
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', index, name='index.html'),
     path('quests/', quests, name='quests')
 ]
