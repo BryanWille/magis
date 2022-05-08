@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+}
+
+
+body{
+    --bgcolor: #091921;
+
+}
