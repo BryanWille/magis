@@ -20,18 +20,14 @@ def valida_cadastro(request):
     senha = request.POST.get('senha')
     email = request.POST.get('email')
 
-<<<<<<< Updated upstream
-    existe = Usuario.objects.filter(email = email)
-=======
-    usuario = Usuario.objects.filter(email = email).first()
->>>>>>> Stashed changes
+    usuario = Usuario.objects.filter(email = email)
     if len(nome.strip()) == 0 or len(email.strip()) == 0:
         return redirect('/auth/cadastro/?status=1')
 
     if len(senha) <= 8:
         return redirect('/auth/cadastro/?status=2')
 
-    if len(existe) > 0:
+    if len(usuario) > 0:
         return redirect('/auth/cadastro/?status=3')
 
     try:
