@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block titulo %}QUESTÕES{% endblock %}
+
+{% block conteudo %}
+
+    <div id="app" class="'mt-5 pt-5">
+        <div class="container">
+
+            <div v-for="(questao,index) in questoes" :key="questao.id" class="mt-5">
+                <p>[[index+1]]. [[questao.questao]]</p> 
+                <div v-for="(opcao, i) in questao.opcoes">
+                    <input @change="check(index, i, questao.id)" type="radio" :value="opcao" :name="'opcao-'+questao.id">
+                    [[opcao]]
+                </div>
+                <p :id="'show_message-'+questao.id"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            delimiters: ['[[', ']]'],
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                materia_id: '{{ id }}',
+                questoes: []
+            },
+            methods: {
+                greet: function (name) {
+                    console.log('Hello from ' + name + '!')
+                },
+                check(questao_index, opcao_index, id){
+                    var questao = this.questoes[questao_index]
+
+                    var element = document.getElementById(`show_message-${id}`)
+
+                    if((opcao_index + 1).toString() == questao.resposta){
+                        element.classList = "text-success mt-3"
+                        element.innerHTML = "Resposta correta 😁"
+                    }else{
+                        element.classList = "text-danger mt-3"
+                        element.innerHTML = "Resposta errada 😕"
+                    }
+                }
+            },
+            mounted(){
+                console.log(this.materia_id)
+                fetch(`/api/${this.materia_id}`)
+                .then(res => res.json())
+                .then(result => {
+                    this.questoes = result
+                    console.log(result)
+                })
+            }
+        });
+    </script>
+{% endblock conteudo %}

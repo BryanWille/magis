@@ -20,7 +20,11 @@ def valida_cadastro(request):
     senha = request.POST.get('senha')
     email = request.POST.get('email')
 
+<<<<<<< Updated upstream
     existe = Usuario.objects.filter(email = email)
+=======
+    usuario = Usuario.objects.filter(email = email).first()
+>>>>>>> Stashed changes
     if len(nome.strip()) == 0 or len(email.strip()) == 0:
         return redirect('/auth/cadastro/?status=1')
 
@@ -50,10 +54,10 @@ def valida_login(request):
         return redirect('/auth/login/?status=1')
     elif len(usuario) > 0:
         request.session['usuario'] = usuario[0].id
-        return redirect(f'/quests/?id_ususario={request.session["usuario"]}')
+        return redirect(f'/quest/?id_ususario={request.session["usuario"]}')
 
 
-def sair(request):
+def logout(request):
     request.session.flush()
     return redirect('/auth/login')
 
