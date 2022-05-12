@@ -28,29 +28,15 @@ body {
 #main {
     background-color: rgb(51, 51, 124);
     grid-area: main;
-    border-radius: 0.8em;
-    
 }
 h1{
     font-size: 70px;
     font-family: Comic Sans MS, Comic Sans, cursive;
 }
 
-#sidebar {
-    background-color: gray;
-    grid-area: sidebar;
-    border-radius: 0.8em;
-    
-}
-#sidebar img{
-    height: 250px;
-    width: 250px;
-}
-
 #conteudo1 {
     background-color: rgb(51, 51, 124);
     grid-area: conteudo1;
-    border-radius: 0.8em;
 }
 #conteudo1 img{
     height: 300px;
@@ -60,7 +46,6 @@ h1{
 #conteudo2 {
     background-color: rgb(51, 51, 124);
     grid-area: conteudo2;
-    border-radius: 0.8em;
 }
 #conteudo2 img{
     height: 300px;
@@ -70,7 +55,6 @@ h1{
 #conteudo3 {
     background-color: rgb(51, 51, 124);
     grid-area: conteudo3;
-    border-radius: 0.8em;
 }
 #conteudo3 img{
     height: 300px;
@@ -80,5 +64,4 @@ h1{
 #footer {
     background-color: rgb(51, 51, 124);
     grid-area: footer;
-    border-radius: 0.8em;
 }

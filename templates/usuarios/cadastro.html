@@ -57,7 +57,7 @@
                     </ul>
                 </div><!---fim social media-->
                 <p class="description">entre também com o email</p>
-                            <form method="POST" action="{% url "valida_cadastro" %}">{% csrf_token %}
+                            <form method="POST" action="{% url 'valida_cadastro' %}">{% csrf_token %}
                             <input  class="form-control" type="text" placeholder="Digite o seu nome..." name="nome">
                             <input  class="form-control" type="email" placeholder="Digite o seu email..." name="email">
                             <input  class="form-control" type="password" placeholder="Digite sua senha..." name="senha">
