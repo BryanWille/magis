@@ -3,6 +3,7 @@ from usuarios.models import Usuario
 
 class Materia(models.Model):
     nome_materia = models.CharField(max_length=100)
+    slug = models.SlugField('Slug', max_length=250, unique=True, blank=True, editable=False)
 
     class Meta:
         ordering = ('nome_materia',)
@@ -15,6 +16,7 @@ class Materia(models.Model):
 class Questao(models.Model):
     materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
     questao = models.CharField(max_length=300)
+    slug = models.SlugField('Slug', max_length=250, unique=True, blank=True, editable=False)
     resposta = models.IntegerField()
     opcao_um = models.CharField(max_length=100)
     opcao_dois = models.CharField(max_length=100)

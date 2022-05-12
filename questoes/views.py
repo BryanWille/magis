@@ -42,3 +42,7 @@ def pega_questoes(request, id):
     return render(request, 'questoes\questoes.html', context)
 
 
+ # if request.session.get('usuario'):
+ #        return HttpResponse('Logado')
+ #    else:
+ #        return redirect('/auth/login/?status=2')
