@@ -17,7 +17,7 @@ def login1(request):
         print(user)
         if user is not None:
             login(request, user)
-            redirect('questoes/home.html')
+            redirect('')
         else:
             message = {'error': 'Email ou senha incorreto(s)!'}
             context = message

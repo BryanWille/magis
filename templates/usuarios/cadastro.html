@@ -4,40 +4,42 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-            </div>
-            <div class="col-md">
-                <form method="POST" >{% csrf_token %}
-                    {% if error %}
-                    <div class="alert alert-danger" role="alert">
-                    {{error}}    
-                    </div>
-                    {% endif %}
-                    {% if success %}
-                    <div class="alert alert-success" role="alert">
-                    {{success}}
-                    </div>
-                    {% endif %}
-                    <h1>Cadastre-se</h1>
-                    <hr>
-                    <label>Nome</label>
-                    <input  class="form-control" type="text" placeholder="Digite o seu nome..." name="p_nome">
-                    <br>
-                    <label>Sobrenome</label>
-                    <input  class="form-control" type="text" placeholder="Digite o seu sobre..." name="u_nome">
-                    <br>
-                    <label>Email</label>
-                    <input  class="form-control" type="email" placeholder="Digite o seu email..." name="email">
-                    <br>
-                    <label>Senha</label>
-                    <input  class="form-control" type="password" placeholder="Digite sua senha..." name="senha">
-                    <br>
-                    <input class="btn btn-outline-success" type="submit" value="Cadastrar">
-                    <a href="{% url 'login1' %}" class="btn btn-outline-primary">Login</a>
-                </form>
-
-            </div>
-            <div class="col-md-3">
+                <div class="col-md"></div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+                        {% if success %}<div class="alert alert-success" role="alert">{{ success }}</div>{% endif %}
+                        <h1>Cadastre-se</h1>
+                        <hr>
+                        <label>Nome</label>
+                        <input class="form-control"
+                               type="text"
+                               placeholder="Digite o seu nome..."
+                               name="p_nome">
+                        <br>
+                        <label>Sobrenome</label>
+                        <input class="form-control"
+                               type="text"
+                               placeholder="Digite o seu sobre..."
+                               name="u_nome">
+                        <br>
+                        <label>Email</label>
+                        <input class="form-control"
+                               type="email"
+                               placeholder="Digite o seu email..."
+                               name="email">
+                        <br>
+                        <label>Senha</label>
+                        <input class="form-control"
+                               type="password"
+                               placeholder="Digite sua senha..."
+                               name="senha">
+                        <br>
+                        <input class="btn btn-outline-success" type="submit" value="Cadastrar">
+                        <a href="{% url 'login1' %}" class="btn btn-outline-primary">Login</a>
+                    </form>
+                </div>
+                <div class="col-md-3"></div>
             </div>
         </div>
-    </div>
-{% endblock conteudo %}
+    {% endblock conteudo %}

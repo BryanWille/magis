@@ -7,13 +7,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+                {%if not request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login1' %}">Login</a>
+                    <a class="btn btn-success" href="{% url 'login1' %}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'cadastro' %}">Cadastro</a>
+                    <a class="btn btn-info" href="{% url 'cadastro' %}">Cadastro</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="btn btn-success" href=" ">Pontuação</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning" href="">logout</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>
