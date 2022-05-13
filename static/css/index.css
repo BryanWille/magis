@@ -1,9 +1,16 @@
-*{
-    color: white;
+p, h1, h2, h3{
+    color: var(--main-text-color);
 }
 
 h1 {
+    font-size: 50px;
     text-align: center;
+}
+
+hr{
+    background-color: var(--sidebar-color);
+    border-top: 3px solid var(--sidebar-color);
+    border-radius: 10px;
 }
 
 .subtitulo {
