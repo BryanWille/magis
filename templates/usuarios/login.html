@@ -9,11 +9,18 @@
             </div>
             <div class="col-md">
                 <form method="POST">{% csrf_token %}
+                    
                     {% if error %}
                     <div class="alert alert-danger" role="alert">
                     {{error}}    
                     </div>
                     {% endif %}
+                    {% if success %}
+                    <div class="alert alert-success" role="alert">
+                    {{success}}
+                    </div>
+                    {% endif %}
+                    
                     <h1>Login</h1>
                     <hr>
                     <label>Email</label>

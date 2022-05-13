@@ -40,5 +40,7 @@ def cadastro(request):
         usuario = User(first_name = p_nome, last_name = u_nome, email= email, username = email)
         usuario.set_password(senha)
         usuario.save()
-    return render(request, "usuarios/cadastro.html")
+        message = {'success': 'Usuário cadastrado com sucesso!'}
+        context = message
+    return render(request, "usuarios/cadastro.html", context)
 
