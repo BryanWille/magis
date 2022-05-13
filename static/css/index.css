@@ -1,28 +1,46 @@
-h1{
+*{
+    color: white;
+}
+
+h1 {
     text-align: center;
 }
 
-.subtitulo{
+.subtitulo {
     text-align: center;
 }
 
-.subtitulo > h2{
+.subtitulo>h2 {
     text-align: center;
     padding-left: 30px;
     display: inline;
 }
 
-.main-content{
+.main-content {
     padding: 30px 0px;
     text-align: center;
 }
 
 
-.main-content-1, .main-content-2, .main-content-3{
+.main-content-1,
+.main-content-2,
+.main-content-3 {
     display: inline-block;
     margin-left: 40px;
     background-color: yellow;
     width: 400px;
     height: 240px;
-    border-radius: 30px;
+    border-radius: 40px;
+}
+
+.car-content {
+    display: inline-block;
+    margin: 0 15px;
+    background-color: yellow;
+    width: 250px;
+    height: 130px;
+    border-radius: 10px;
+}
+.car-content p{
+    color: black;
 }
