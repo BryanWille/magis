@@ -2,31 +2,26 @@
 
 {% block conteudo%}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/index.css">
-</head>
-
-<body>
-    <div class="container">
-        <div id="main">
-            <h1>Secular</h1>
-        </div>
-        <div id="conteudo1">Conteúdo 1 <img
-                src="https://itforum.com.br/wp-content/uploads/2019/10/internet-completa-50-anos-1.jpg" alt=""></div>
-        <div id="conteudo2">Conteúdo 2 <img
-                src="https://media.istockphoto.com/vectors/audit-report-or-research-of-sales-financial-data-vector-flat-cartoon-vector-id1223930609"
-                alt=""></div>
-        <div id="conteudo3">Conteúdo 3 <img
-                src="https://cdn.pixabay.com/photo/2018/05/08/18/25/internet-3383600_960_720.png" alt=""></div>
-        <div id="footer"></div>
+<link rel="stylesheet" href="/static/css/index.css">
+<div id="index-main-page">
+    <h1>Secular</h1>
+    <div class="subtitulo">
+        <h2>ad astra</h2>
+        <h2>natus vincere</h2>
+        <h2>hic et nunc</h2>
     </div>
-</body>
+    <hr>
+    <div class="main-content">
+        <span class="main-content-1">
+        </span>
+        <span class="main-content-2">
+        </span>
+        <span class="main-content-3">
+        </span>
+    </div>
+    <div class="main-carrossel">
+        {% include 'carrossel.html' %}
+    </div>
+</div>
 
-</html>
 {% endblock conteudo%}
