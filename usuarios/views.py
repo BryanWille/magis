@@ -1,59 +1,44 @@
-from django.forms import EmailField
-from django.shortcuts import render
+from email import message
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User 
+from django.contrib.auth import authenticate, login 
 
-from .models import Usuario
-from django.shortcuts import redirect
-from hashlib import sha256
-
-
-def login(request):
-    status = request.GET.get('status')
-    return render(request, "usuarios\login.html", {"status":status})
+def login1(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        
+        user = User.objects.filter(email = email).first()
+        if not user:
+            message = {'error': 'Usuário não existe!'}
+            context = message
+            return render(request, "usuarios/login.html", context)
+        user = authenticate(username=email, password=senha)
+        print(user)
+        if user is not None:
+            login(request, user)
+            redirect('questoes/home.html')
+        else:
+            message = {'error': 'Email ou senha incorreto(s)!'}
+            context = message
+            return render(request, "usuarios/login.html", context)
+    return render(request, "usuarios/login.html")
 
 def cadastro(request):
-    status = request.GET.get('status')
-    return render(request, "usuarios\cadastro.html", {"status":status})
+    if request.method == 'POST':
+        p_nome = request.POST.get('p_nome')
+        u_nome = request.POST.get('u_nome')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        user = User.objects.filter(email = email).first()
 
+        if user:
+            message = {'error': 'Usuário já existe!'}
+            context = message
+            return render(request, "usuarios/cadastro.html", context)
 
-def valida_cadastro(request):
-    nome = request.POST.get('nome')
-    senha = request.POST.get('senha')
-    email = request.POST.get('email')
-
-    existe = Usuario.objects.filter(email = email)
-    if len(nome.strip()) == 0 or len(email.strip()) == 0:
-        return redirect('/auth/cadastro/?status=1')
-
-    if len(senha) <= 8:
-        return redirect('/auth/cadastro/?status=2')
-
-    if len(existe) > 0:
-        return redirect('/auth/cadastro/?status=3')
-
-    try:
-        senha = sha256(senha.encode()).hexdigest()
-        usuario = Usuario(nome=nome, email=email, senha=senha)
+        usuario = User(first_name = p_nome, last_name = u_nome, email= email, username = email)
+        usuario.set_password(senha)
         usuario.save()
-        return redirect('/auth/cadastro/?status=0')
-        
-    except:
-        redirect('/auth/cadastro/?status=4')
-
-def valida_login(request):
-    email = request.POST.get('email')
-    senha = request.POST.get('senha')
-    senha = sha256(senha.encode()).hexdigest()
-
-    usuario = Usuario.objects.filter(email = email).filter(senha = senha)
-
-    if len(usuario) == 0:
-        return redirect('/auth/login/?status=1')
-    elif len(usuario) > 0:
-        request.session['usuario'] = usuario[0].id
-        return redirect(f'/quests/?id_ususario={request.session["usuario"]}')
-
-
-def sair(request):
-    request.session.flush()
-    return redirect('/auth/login')
+    return render(request, "usuarios/cadastro.html")
 
