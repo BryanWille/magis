@@ -9,10 +9,17 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {%if not request.user.is_authenticated %}
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="btn btn-success" href="{% url 'login1' %}">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-info" href="{% url 'cadastro' %}">Cadastro</a>
+=======
+                    <a class="nav-link" href="/auth/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/cadastro">Cadastro</a>
+>>>>>>> parent of c5ed203 (Login com allauth funcionando)
                 </li>
                 {% else %}
                 <li class="nav-item">

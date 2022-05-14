@@ -26,13 +26,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
 
     'main',
     'usuarios',
     
     
+=======
+    
+    'main',
+    'usuarios',
+>>>>>>> parent of c5ed203 (Login com allauth funcionando)
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
