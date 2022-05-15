@@ -1,26 +1,38 @@
-   {% extends "base.html" %}
-   {% block conteudo%}
-   
-   <link rel="stylesheet" href="/static/css/index.css">
-   <div id="index-main-page">
-       <h1>Secular</h1>
-       <div class="subtitulo">
-           <h2>ad astra</h2>
-           <h2>natus vincere</h2>
-           <h2>hic et nunc</h2>
-       </div>
-       <hr>
-       <div class="main-content">
-           <span class="main-content-1">
-           </span>
-           <span class="main-content-2">
-           </span>
-           <span class="main-content-3">
-           </span>
-       </div>
-       <div class="main-carrossel">
-           {% include 'carrossel.html' %}
-       </div>
-   </div>
-   
-   {% endblock conteudo%}
+{% extends "base.html" %}
+{% block titulo %}Home{% endblock %}
+{% block conteudo%}
+
+<link rel="stylesheet" href="/static/css/home.css">
+
+<div id="index-main-page">
+    <h1>Secular</h1>
+    <div class="subtitulo">
+        <h2>ad astra</h2>
+        <h2>natus vincere</h2>
+        <h2>hic et nunc</h2>
+    </div>
+
+    <div id="main-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cum modi itaque alias, quod quisquam nostrum repellendus excepturi autem neque atque quo quasi dignissimos sapiente repellat nobis pariatur facilis velit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eius non amet harum placeat alias sunt quam quod minima. Temporibus quae animi nihil voluptatum praesentium corrupti consequuntur modi pariatur esse? Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe earum veniam reprehenderit provident minus sapiente debitis rerum tempora nobis quia ut, iusto assumenda, accusantium id possimus repudiandae quasi nesciunt sit!</p>
+    </div>
+
+    <div class="dividir"></div>
+    <div class="main-content">
+        <span class="main-content-1">
+        </span>
+        <span class="main-content-2">
+        </span>
+        <span class="main-content-3">
+        </span>
+    </div>
+
+
+
+    <div class="main-carrossel">
+        <div class="dividir"></div>
+        {% include 'carrossel.html' %}
+        <div class="dividir"></div>
+    </div>
+</div>
+
+{% endblock conteudo%}

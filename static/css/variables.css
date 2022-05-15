@@ -11,8 +11,16 @@
     --smal-font-size: 4, 0rem;
 
     /* colors */
+    --body-color: #fff;
     --bgcolor: #091921;
     --contrast-color: #c70e0e;
     --lighter-color: #999A9A;
     --darker-color: #2C2C2C;
+    --darker-contrast-color: rgb(138, 7, 7);
+
+    
+    /* colors black */
+    --bg-color-b: #091921;
+    --bg-color-b:
+
 }

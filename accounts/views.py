@@ -14,7 +14,7 @@ def login_attempt(request):
         print(email)
         user = User.objects.filter(email=email).first()
         if not user:
-            message = {'error': 'user does not exists'}
+            message = {'error': 'Usuario não existe!'}
             context = message
             return render(request, 'auth/login.html', context)
         user = authenticate(username=email, password=password)
@@ -24,7 +24,7 @@ def login_attempt(request):
             login(request, user)
             return redirect('home')
         else:
-            message = {'error': 'invalid credentials'}
+            message = {'error': 'Email ou senha invalidos!'}
             context = message
             return render(request, 'auth/login.html', context)
     return render(request, 'auth/login.html')
@@ -40,13 +40,12 @@ def register_attempt(request):
         user = User.objects.filter(email=email).first()
 
         if user:
-            message = {'error': 'user already exists'}
+            message = {'error': 'Já existe esse usuario no sistema!'}
             context = message
             return render(request, 'auth/register.html', context)
         user = User(first_name=f_name, last_name=l_name, email=email, username=email)
         user.set_password(password)
         user.save()
-
     return render(request, 'auth/register.html')
 
 
