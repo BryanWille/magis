@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block titulo %}LOGIN{% endblock %}
+{% block conteudo %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="col-md"></div>
+            <form method="POST">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+                {% endif %}
+                <h1>Login</h1>
+                <hr>
+                <br>
+                <label>Email</label>
+                <input class="form-control"
+                       type="email"
+                       placeholder="Digite o seu email..."
+                       name="email">
+                <br>
+                <label>Senha</label>
+                <input type="password" name="password" id="inputPassword" class="form-control mt-4"
+                       placeholder="Digite sua senha..." required>
+                <br>
+                <br>
+                <input class="btn btn-outline-success" type="submit">
+                <a href="{% url 'register_attempt' %}" class="btn btn-outline-primary">Cadastrar</a>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock conteudo %}
