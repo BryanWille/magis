@@ -28,7 +28,7 @@ h4 {
 }
 
 .dividir {
-    width: 100vw;
+    padding-right: -30px;
     border-top: 2px solid var(--main-text-color);
 }
 
