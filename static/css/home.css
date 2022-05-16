@@ -64,7 +64,6 @@ h4 {
 
 .btn-carrosel {
     display: inline-block;
-    margin: 0 15px;
     background-color: var(--sidebar-color);
     width: 250px;
     height: 130px;
