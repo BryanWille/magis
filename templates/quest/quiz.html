@@ -15,7 +15,7 @@
         <div class="quest">
             <form @submit.prevent="handleSubmit()">
                 <div id= "question" v-for="(question,index) in questions" :key="question.id" class="mt-5">
-                    <p>[[index + 1]]. [[question.question]]</p>
+                    <p>Questão [[index + 1]]. [[question.question]]</p>
                     <div id="p" v-for="(option , i) in question.options" >
                         <input :id="'radio-'+question.id" @change="check(index , i , question.id)" type="radio"
                             :value="option" :name="'option-'+question.id">
