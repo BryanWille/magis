@@ -2,10 +2,12 @@
 {% block titulo %}Projeto Interdisciplinar{%endblock titulo%}
 {% block conteudo %}
 <link rel="stylesheet" href="static/css/index.css">
+<h1>Secular</h1>
+<hr>
 <div class="container-main">
     <div class="row">
         <div class=" col-1">
-            <h1>Secular</h1>
+
             <p>Você anda com medo de suas provas ou não entende sua matéria?</p>
             <p>Venha conosco, aqui na Secular você ira provar todo o seu conhecimento , provar também de uma vez por
                 todas
@@ -14,22 +16,18 @@
                 cliente
                 terá uma grande experiência de aprendizado e prática!</p>
             <p>Navegue conosco.</p>
-            <hr>
+            <div class="row">
+                <div class="banner-btn">
+                    <!-- https://getbootstrap.com.br/docs/4.1/components/buttons/ -->
+                    <button type="button" class="btn btn-lg btn-dark"><a href="{% url 'register_attempt' %}"
+                            target="_blank">Junte-se</a></button>
+                </div>
+            </div>
         </div>
+        <div class=" col-2"><img src="/static/img/index-img.png" alt="Secular"></div>
+    </div>
+</div>
 
-        <div class=" col-2"><img src="/static/img/logo-escura.png" alt="Secular"></div>
-    </div>
-</div>
-<div class="row">
-    <div class="banner-btn">
-        <!-- https://getbootstrap.com.br/docs/4.1/components/buttons/ -->
-        <button type="button" class="btn btn-lg btn-sucess"><a href="{% url 'login_attempt' %}"
-                target="_blank">Login</a> </button>
-        <button type="button" class="btn btn-lg btn-dark"><a href="{% url 'register_attempt' %}"
-                target="_blank">Cadastre-se</a> </button>
-    </div>
-</div>
-<hr>
 {% endblock conteudo%}
 <!--
     <link rel="stylesheet" href="static/css/index.css">

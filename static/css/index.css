@@ -1,12 +1,12 @@
 body {background-color: rgb(243, 157, 157);
-    font-size:26px;
+    font-size:22px;
 
    }
 
 h1 {
     color: red;
     font-size: 40px;
-
+    text-align: center;
 }
 
 .container-main{
@@ -16,8 +16,13 @@ h1 {
 .col-1{
     width:700px;
     font-size: center;
-    border-right: 5px solid red;
 }
 img{
-    width:500px;
+    width:900px;
+}
+.col-2{
+    display: center;
+}
+.banner-btn{
+    align-items: center;
 }

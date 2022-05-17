@@ -3,8 +3,13 @@
 {% block conteudo %}
 
 
+<link rel="stylesheet" href="/static/css/quiz.css">
+
 <div id="app" class="mt-5 pt-5">
     <div class="container">
+
+        
+
         <form @submit.prevent="handleSubmit()">
             <div v-for="(question,index) in questions" :key="question.id" class="mt-5">
                 <p>[[index + 1]]. [[question.question]]</p>

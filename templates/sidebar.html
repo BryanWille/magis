@@ -1,10 +1,11 @@
-
 <nav class="sidebar close">
     <header>
-        
+
         <div class="image-text">
             <span class="image">
-                <img src="/static/img/logo-escura.png" alt="">
+                <a href="{% url 'index' %}">
+                    <img src="/static/img/logo-escura.png" alt="">
+                </a>
             </span>
 
             <div class="text logo-text">
@@ -30,7 +31,7 @@
 
                 <li class="nav-link">
                     <a href="{% url 'index' %}">
-                        <i class='bx bx-home-alt icon' ></i>
+                        <i class='bx bx-home-alt icon'></i>
                         <span class="text nav-text">Pág Inicial</span>
                     </a>
                 </li>
@@ -56,20 +57,20 @@
 
         <div class="bottom-content">
             {% if request.user.is_authenticated %}
-                <li class="nav-link">
-                    <a href="{% url 'logout_attempt' %}">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
+            <li class="nav-link">
+                <a href="{% url 'logout_attempt' %}">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
             {% else %}
-                <li class="nav-link">
-                    <a href="{% url 'login_attempt' %}">
-                        <i class='bx bx-log-in icon'></i>
-                        <span class="text nav-text">Login</span>
-                    </a>
-                </li>
-            {% endif %}    
+            <li class="nav-link">
+                <a href="{% url 'login_attempt' %}">
+                    <i class='bx bx-log-in icon'></i>
+                    <span class="text nav-text">Login</span>
+                </a>
+            </li>
+            {% endif %}
 
             <li class="mode">
                 <div class="sun-moon">
@@ -82,7 +83,7 @@
                     <span class="switch"></span>
                 </div>
             </li>
-            
+
         </div>
     </div>
 </nav>
