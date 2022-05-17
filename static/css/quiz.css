@@ -1,0 +1,34 @@
+.quest{
+    text-align: center;
+    background-color: var(--sidebar-color);
+    
+   
+}
+
+.mt-5{
+    text-align: left;
+    background-color: var(--body-color);
+    margin-top: 50%;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+    
+
+
+    border-width: medium;
+    border-style: solid;
+    border-color: #000;
+    
+
+    color: var(--main-text-color);
+    
+}
+
+h1{
+    color: var(--main-text-color);
+    text-align: center;
+    font-size: 40px;
+    margin-left: -5vw;
+}
+
