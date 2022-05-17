@@ -3,11 +3,24 @@ body {
 
 }
 
+p {
+    color: var(--main-text-color);
+}
+
 h1 {
+    font-size: 60px;
     text-align: center;
-    color: red;
-    font-size: 40px;
+    color: var(--sidebar-color);
     margin-left: -30vw;
+}
+
+hr {
+    color: black;
+}
+
+#texto-index {
+    text-align: center;
+    padding-top: 30px;
 }
 
 .container-main {
@@ -26,4 +39,29 @@ img {
 
 .col-2 {
     align-items: left;
+}
+
+.botao {
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px;
+    height: auto;
+}
+
+.btn-join {
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+}
+
+.btn-join:hover {
+    color: var(--sidebar-color);
+    background-color: var(--text-color);
+}
+
+.btn-join a {
+    color: var(--text-color);
+}
+
+.btn-join a:hover {
+    color: var(--sidebar-color);
 }
