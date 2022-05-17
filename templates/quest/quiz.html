@@ -5,29 +5,29 @@
 
 <link rel="stylesheet" href="/static/css/quiz.css">
 
+<div>
+<div><h1 class="title">questões</h1></div>
 
-<h1>Quest</h1>
+
 
 <div id="app" class="mt-5 pt-5">
     
         <div class="quest">
-            
             <form @submit.prevent="handleSubmit()">
-                <div v-for="(question,index) in questions" :key="question.id" class="mt-5">
+                <div id= "question" v-for="(question,index) in questions" :key="question.id" class="mt-5">
                     <p>[[index + 1]]. [[question.question]]</p>
-                    <div v-for="(option , i) in question.options" >
+                    <div id="p" v-for="(option , i) in question.options" >
                         <input :id="'radio-'+question.id" @change="check(index , i , question.id)" type="radio"
                             :value="option" :name="'option-'+question.id">
                         [[option]]
                     </div>
                     <p :id="'show_message-'+question.id"></p>
-                </div>
-    
+                </div><!--div questões-->
                 <button class="btn btn-danger" type="submit">Enviar</button>
-            </form>
-    </div>
+            </form><!-- fim form-->
+        </div><!--fim quest-->
 </div>
-
+</div>
 
 
 

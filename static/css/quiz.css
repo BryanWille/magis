@@ -1,34 +1,44 @@
-.quest{
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+
+/* title */
+.title {
+    padding-top: 2.5%;
+    color: var(--sidebar-color);
     text-align: center;
-    background-color: var(--sidebar-color);
-    
-   
-}
-
-.mt-5{
-    text-align: left;
-    background-color: var(--body-color);
-    margin-top: 50%;
-    margin-bottom: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
-
-    
-
-
-    border-width: medium;
-    border-style: solid;
-    border-color: #000;
-    
-
-    color: var(--main-text-color);
-    
-}
-
-h1{
-    color: var(--main-text-color);
-    text-align: center;
-    font-size: 40px;
+    font-size: var(--mid-font-size);
     margin-left: -5vw;
+    text-transform: capitalize;
 }
 
+.quest {
+    margin-top: 0;
+    text-align: center;
+}
+
+.mt-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    font-size: 2.0rem;
+    margin: 0px 10px 0px 10px;
+    color: var(--main-text-color);
+}
+/*================================================*/
+p {
+    margin: 10px;
+    margin-left: 15px;
+}
+
+#p {
+    margin: 3px;
+    margin-left: 15px;
+}
+
+#question {
+    background-color: rgba(255, 218, 218, 0.712);
+    border-radius: 10px;
+    border: 2px solid black;
+
+}
