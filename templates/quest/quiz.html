@@ -14,8 +14,10 @@
     
         <div class="quest">
             <form @submit.prevent="handleSubmit()">
+                
                 <div id= "question" v-for="(question,index) in questions" :key="question.id" class="mt-5">
-                    <p>Questão [[index + 1]]. [[question.question]]</p>
+                    <div class="card"><div id="card1">Questão [[index + 1]]</div></div>
+                    <p>[[question.question]]</p>
                     <div id="p" v-for="(option , i) in question.options" >
                         <input :id="'radio-'+question.id" @change="check(index , i , question.id)" type="radio"
                             :value="option" :name="'option-'+question.id">
@@ -23,7 +25,7 @@
                     </div>
                     <p :id="'show_message-'+question.id"></p>
                 </div><!--div questões-->
-                <button class="btn btn-danger" type="submit">Enviar</button>
+                <button class="btn" type="submit">Enviar</button>
             </form><!-- fim form-->
         </div><!--fim quest-->
 </div>

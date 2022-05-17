@@ -2,16 +2,25 @@
 
 /* title */
 .title {
-    padding-top: 2.5%;
-    color: var(--sidebar-color);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: #fff;
     text-align: center;
     font-size: var(--mid-font-size);
     margin-left: -5vw;
     text-transform: capitalize;
+    background-color: var(--contrast-color);
 }
-
+#card{
+    background-color: aqua;
+    
+}
+.button{
+    margin-top: 10px;
+    width: 30%;
+    
+}
 .quest {
-    margin-top: 0;
     text-align: center;
 }
 
@@ -24,6 +33,7 @@
     font-size: 2.0rem;
     margin: 0px 10px 0px 10px;
     color: var(--main-text-color);
+  
 }
 /*================================================*/
 p {
@@ -37,8 +47,36 @@ p {
 }
 
 #question {
-    background-color: rgba(255, 218, 218, 0.712);
+    background-color: rgba(250, 225, 225, 0.712);
     border-radius: 10px;
-    border: 2px solid black;
+    border: 2px solid var( --contrast-color);
 
 }
+.btn {
+    margin-left: -5vw;
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: var(--big-small-font);
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 30%;
+    align-self: center;
+    border: none;
+    margin-top: 8rem;
+    background-color: var(--contrast-color);
+    border: 1px solid #fff;
+    transition: background-color .1s;
+}
+.btn:hover {
+    background-color: var(--lighter-color);
+    color: var(  --contrast-color);
+}
+
+.card{
+    
+    color: #fff;
+    background-color: var(--contrast-color);
+}
+#card1{margin-left: 15px;}
