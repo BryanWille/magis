@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
 
+
+
 /* title */
 .title {
     padding-top: 1%;
@@ -53,7 +55,7 @@ p {
 
 }
 .btn {
-    margin-left: -5vw;
+   
     border-radius: 15px;
     text-transform: uppercase;
     color: #fff;
@@ -80,3 +82,17 @@ p {
     background-color: var(--contrast-color);
 }
 #card1{margin-left: 15px;}
+
+.final{
+    position: absolute;
+    bottom: 0;
+    color: #FFF;
+    width: 98%;	
+    text-align: center;
+    background-color: var(--bgcolor);
+    
+}
+
+#link-footer{
+    text-decoration: none;
+}
