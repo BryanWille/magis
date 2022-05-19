@@ -5,6 +5,8 @@
     border-bottom: 1px solid #353535;
 } */
 
+
+
 .slick-slide {
     margin: 0px 60px;
 }
@@ -75,8 +77,21 @@
     display: inline-block;
 }
 
-.slide p{
+.slide p {
     font-size: 30px;
+    text-align: center;
+}
+.btn-carrosel{
+    background-color: var(--ndegrade-1);
+    background-image: linear-gradient(315deg, var(--ndegrade-1) 0%, var(--ndegrade-2) 74%);
+}
+
+
+.car-content>a>p {
+    color: white;
+    padding: 0px;
+    font-size: 25px;
+    margin: auto;
     text-align: center;
 }
 
@@ -87,10 +102,11 @@
         width: 1rem;
         height: 1rem;
     }
-    #carrossel{
+
+    #carrossel {
         margin: 0px 50px;
     }
-    
+
 }
 
 .row {

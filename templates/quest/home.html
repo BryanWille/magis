@@ -6,24 +6,37 @@
 
 <div id="index-main-page">
     <h1>Secular</h1>
+
+    <!--
     <div class="subtitulo">
         <h2>ad astra</h2>
         <h2>natus vincere</h2>
         <h2>hic et nunc</h2>
     </div>
-
+    -->
     <div id="main-text">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cum modi itaque alias, quod quisquam nostrum repellendus excepturi autem neque atque quo quasi dignissimos sapiente repellat nobis pariatur facilis velit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eius non amet harum placeat alias sunt quam quod minima. Temporibus quae animi nihil voluptatum praesentium corrupti consequuntur modi pariatur esse? Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe earum veniam reprehenderit provident minus sapiente debitis rerum tempora nobis quia ut, iusto assumenda, accusantium id possimus repudiandae quasi nesciunt sit!</p>
+        <p>Você anda com medo de suas provas ou não entende sua matéria?
+            Venha conosco, aqui na Secular você ira provar todo o seu conhecimento, provar também de uma vez por
+            todas
+            de sua capacidade e assim, sentir-se seguro para realizar suas devidas necessidades.
+            Atualmente contamos com mais de 200 perguntas prontas, com diversas matérias cadastradas, onde nosso
+            cliente
+            terá uma grande experiência de aprendizado e prática!
+            Navegue conosco</p>
     </div>
 
     <div class="dividir"></div>
     <div class="main-content">
-        <span class="main-content-1">
-        </span>
-        <span class="main-content-2">
-        </span>
-        <span class="main-content-3">
-        </span>
+        <a href="/">
+            <span class="main-content-1">
+                <i class="fa-solid fa-10x fa-house-user"></i>
+            </span>
+        </a>
+        <a href="{% url 'view_score' %}">
+            <span class="main-content-2">
+                <i class="fa-solid fa-10x fa-ranking-star"></i>
+            </span>
+        </a>
     </div>
 
 
@@ -32,6 +45,10 @@
         <div class="dividir"></div>
         {% include 'carrossel.html' %}
         <div class="dividir"></div>
+    </div>
+
+    <div id="imgbola">
+        <img src="/static/img/meia-bola.png" id="bola-metade-cima" alt="">
     </div>
 </div>
 

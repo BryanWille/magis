@@ -28,8 +28,15 @@
             </p>
             <div class="banner-btn">
                 <!-- https://getbootstrap.com.br/docs/4.1/components/buttons/ -->
-                <button type="button" class="btn btn-lg btn-dark btn-join botao"><a href="{% url 'login_attempt' %}"
+
+
+                {% if not request.user.is_authenticated %}
+                    <button type="button" class="btn btn-lg btn-dark btn-join botao"><a href="{% url 'login_attempt' %}"
                         target="_blank">Junte-se</a></button>
+                {% else %}
+                    <button type="button" class="btn btn-lg btn-dark btn-join botao"><a href="{% url 'home' %}"
+                        target="_blank">Junte-se</a></button>
+                {% endif %}
             </div>
         </div>
         <div class="col-6">
