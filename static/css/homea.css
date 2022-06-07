@@ -79,7 +79,7 @@ h4 {
 
 .btn-carrosel {
     display: inline-block;
-    background-color: var(--sidebar-color);
+    background-color: var(--main-text-color);
     width: 250px;
     height: 130px;
     border-radius: 10px;
@@ -88,9 +88,8 @@ h4 {
 
 
 .btn-carrosel:hover {
-    background-color: var(--sidebar-color);
-    filter: brightness(130%);
-    transform: scale(1.25);
+    background-color: black;
+    transform: scale(1.05);
 }
 
 span>i {
@@ -118,18 +117,4 @@ span>i {
     position: absolute;
     bottom: 0;
     filter: var(--filter);
-}
-
-.btn-carrosel{
-    display: flex;
-
-    justify-content: center;
-  
-    align-items: center;
-}
-
-.btn-carrosel > p{
-    text-align: center;
-    font-size: 25px;
-    color: white;
 }
