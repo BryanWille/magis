@@ -15,8 +15,8 @@ Neste desafio o grupo precisa desenvolver um sistema de perguntas e respostas pr
 ## 👨🏻‍💻 Tecnologias Usadas
  - HTML
  - CSS
- - DJANGO
- - JAVASCRIPT
+ - JavaScript com framework Vue.js
+ - Python com framework Django
 
 
 
