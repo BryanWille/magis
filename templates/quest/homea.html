@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block titulo %}Home{% endblock %}
+{% block conteudo%}
+
+<link rel="stylesheet" href="/static/css/home.css">
+
+<div id="index-main-page">
+    <h1>Secular</h1>
+
+    <!--
+    <div class="subtitulo">
+        <h2>ad astra</h2>
+        <h2>natus vincere</h2>
+        <h2>hic et nunc</h2>
+    </div>
+    -->
+    <div id="main-text">
+        <p>Você anda com medo de suas provas ou não entende sua matéria?
+            Venha conosco, aqui na Secular você ira provar todo o seu conhecimento, provar também de uma vez por
+            todas
+            de sua capacidade e assim, sentir-se seguro para realizar suas devidas necessidades.
+            Atualmente contamos com mais de 200 perguntas prontas, com diversas matérias cadastradas, onde nosso
+            cliente
+            terá uma grande experiência de aprendizado e prática!
+            Navegue conosco</p>
+    </div>
+
+    <div class="dividir"></div>
+    <div class="main-content">
+        <a href="/">
+            <span class="main-content-1">
+                <i class="fa-solid fa-10x fa-house-user"></i>
+            </span>
+        </a>
+        <a href="{% url 'view_score' %}">
+            <span class="main-content-2">
+                <i class="fa-solid fa-10x fa-ranking-star"></i>
+            </span>
+        </a>
+    </div>
+
+
+
+    <div class="main-carrossel">
+        <div class="dividir"></div>
+        {% include 'carrossel.html' %}
+        <div class="dividir"></div>
+    </div>
+
+    <div id="imgbola">
+        <img src="/static/img/meia-bola.png" id="bola-metade-cima" alt="">
+    </div>
+</div>
+
+{% endblock conteudo%}
