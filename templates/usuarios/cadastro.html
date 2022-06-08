@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block titulo %}CADASTRO{% endblock %}
 {% block conteudo %}
-    <div class="container">
+<link href="/static/css/cadastro.css" rel="stylesheet">
+
     <br>
     {% if status == "0" %}
         <div class="alert alert-success" role="alert">
@@ -28,67 +29,68 @@
             Erro interno do sistema!
         </div>
     {% endif %}
-        <div class="row">
-            <div class="col-md-3">
-<<<<<<< HEAD
-                <div class="col-md"></div>
-                    <form method="POST">
-                        {% csrf_token %}
-                        {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
-                        {% if success %}<div class="alert alert-success" role="alert">{{ success }}</div>{% endif %}
-                        <h1>Cadastre-se</h1>
-                        <hr>
-                        <label>Nome</label>
-                        <input class="form-control"
-                               type="text"
-                               placeholder="Digite o seu nome..."
-                               name="p_nome">
-                        <br>
-                        <label>Sobrenome</label>
-                        <input class="form-control"
-                               type="text"
-                               placeholder="Digite o seu sobre..."
-                               name="u_nome">
-                        <br>
-                        <label>Email</label>
-                        <input class="form-control"
-                               type="email"
-                               placeholder="Digite o seu email..."
-                               name="email">
-                        <br>
-                        <label>Senha</label>
-                        <input class="form-control"
-                               type="password"
-                               placeholder="Digite sua senha..."
-                               name="senha">
-                        <br>
-                        <input class="btn btn-outline-success" type="submit" value="Cadastrar">
-                        <a href="{% url 'login1' %}" class="btn btn-outline-primary">Login</a>
+    {% if status == "1" %}
+    <div class="alert alert-danger" role="alert">
+        Email ou senha invalidos!
+    </div>
+    {% endif %}
+    {% if status == "2" %}
+    <div class="alert alert-danger" role="alert">
+        Faça login antes de tentar acessar o sistema!
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="content first-content">
+            <div class="first-column"> 
+                <h2 class="title"> bem vindo de volta!</h2>
+                <p class = "description">permanecer conectado </p>
+                <p class = "description"> por favor entre com seus dados pessoais</p>
+                <button class="btn">login</button>
+            </div> <!--fim first column-->
+            <div class="second-column">
+                <h2 class="title">criar conta</h2>
+                <div class="social-media">
+                    <ul>
+                        <li><a href="">facebook</a></li>
+                        <li><a href="">google</a></li>
+                        <li><a href="">linkedin</a></li>
+                    </ul>
+                </div><!---fim social media-->
+                <p class="description">entre também com o email</p>
+                            <form method="POST" action="{% url 'valida_cadastro' %}">{% csrf_token %}
+                            <input  class="form-control" type="text" placeholder="Digite o seu nome..." name="nome">
+                            <input  class="form-control" type="email" placeholder="Digite o seu email..." name="email">
+                            <input  class="form-control" type="password" placeholder="Digite sua senha..." name="senha">
+                            <button class="btn">Cadastrar</button>
+                        </form>
+            </div><!--fim second-column-->
+        </div> <!---fim first content--->
+    
+        <div class="content second-content"> 
+            <div class="first-column"> 
+            <h2 class="title">Olá, amigo!</h2>
+            <p class = "description">por favor entre com seus dados pessoais </p>
+            <p class = "description">comece sua jornada conosco</p>
+            <button class="btn">Cadastre-se</button>
+            </div> <!--fim first column-->
+           <div class="second-column"><h2 class="title">acessar conta</h2>
+            <div class="social-media">
+                <ul>
+                    <li><a href="">facebook</a></li>
+                    <li><a href="">google</a></li>
+                    <li><a href="">linkedin</a></li>
+                </ul>
+            </div><!---fim social media-->
+            <p class="description">acesse sua conta</p>
+                        <form method="POST" action="{% url 'valida_cadastro' %}">{% csrf_token %}
+                        <input  class="form-control" type="email" placeholder="Digite o seu email..." name="email">
+                        <input  class="form-control" type="password" placeholder="Digite sua senha..." name="senha">
+                        <a href="#">esqueceu sua senha?</a>
+                        <button class="btn">login</button>
                     </form>
-                </div>
-                <div class="col-md-3"></div>
-=======
-            </div>
-            <div class="col-md">
-                <h1>Cadastre-se</h1>
-                <hr>
-                <form method="POST" action="{% url "valida_cadastro" %}">{% csrf_token %}
-                    <label>Nome</label>
-                    <input  class="form-control" type="text" placeholder="Digite o seu nome..." name="nome">
-                    <br>
-                    <label>Email</label>
-                    <input  class="form-control" type="email" placeholder="Digite o seu email..." name="email">
-                    <br>
-                    <label>Senha</label>
-                    <input  class="form-control" type="password" placeholder="Digite sua senha..." name="senha">
-                    <br>
-                    <input class="btn btn-outline-success" type="submit" value="Cadastrar">
-                    <a href="{% url 'login1' %}" class="btn btn-outline-primary">Login</a>
-                </form>
+           </div><!---fim second conlumn--->
+        </div><!---fim second content--->
+    </div> <!--fim container-->
 
-            </div>
-            <div class="col-md-3">
->>>>>>> parent of c5ed203 (Login com allauth funcionando)
-            </div>
-        </div>
-    {% endblock conteudo %}
+        
+{% endblock conteudo %}

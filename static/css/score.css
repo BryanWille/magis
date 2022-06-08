@@ -1,0 +1,46 @@
+p {
+    margin: 0px;
+}
+
+h1 {
+    color: var(--main-text-color);
+    font-size: 60px;
+    margin: 70px 0px;
+    text-align: center;
+}
+
+#div-score {
+    border: 3px solid var(--main-text-color);
+    margin: auto;
+    width: fit-content;
+    padding: 30px 50px;
+}
+
+
+#lista-scores {
+    margin: auto;
+    list-style: none;
+    font-size: 20px;
+    padding: 0px;
+    border-radius: 6px;
+    margin: 7px;
+    border: 2px solid var(--main-text-color);
+    ;
+    width: 500px;
+}
+
+#num-score {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    background-color: var(--sidebar-color);
+    border-radius: 3px;
+}
+
+#nome-materia {
+    display: inline;
+    color: var(--main-text-color);
+    background-color: var(--body-color);
+    border-radius: 3px;
+}

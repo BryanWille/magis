@@ -1,0 +1,106 @@
+h1 {
+    margin-top: 20px;
+    margin-right: 130px;
+    text-align: center;
+    font-size: 110px;
+    color: var(--sidebar-color);
+    font-weight: bolder;
+}
+
+#main-content {
+    margin-top: 80px;
+}
+
+#texto-principal {
+    margin: 30px 0px 50px 0px ;
+    color: #7f8c8d;
+
+}
+
+.titulo {
+    border-bottom: 3px solid var(--sidebar-color);
+}
+
+#bola {
+    width: 33%;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    color: var(--sidebar-color);
+}
+
+.texto {
+    padding: 0px 100px;
+    margin: 0px 0px 0px auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    color: var(--sidebar-color);
+    font-weight: bolder;
+}
+
+h3 {
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+    font: bolder;
+    font-size: 45px;
+    color: var(--sidebar-color);
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+p {
+    color:#7f8c8d;
+
+    font-size: 25px;
+    text-align: justify;
+}
+
+#image-aluno>img {
+    position: absolute;
+    right: 0px;
+    width: 1200px;
+    height: auto;
+    z-index: 3;
+}
+
+.banner-btn {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.botao {
+    font-size: 20px;
+    font-weight: bold;
+    width: 330px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.botao a {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.btn-join {
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+}
+
+.btn-join:hover {
+    color: var(--sidebar-color);
+    background-color: var(--text-color);
+}
+
+.btn-join a {
+    color: var(--invert-text);
+}
+
+.botao:hover > a{
+    color: var(--sidebar-color);
+}

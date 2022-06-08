@@ -1,0 +1,90 @@
+<nav class="sidebar close">
+    <header>
+
+        <div class="image-text">
+            <span class="image">
+                <a href="{% url 'index' %}">
+                    <img src="/static/img/logo-escura.png" alt="">
+                </a>
+            </span>
+
+            <div class="text logo-text">
+                <span class="name">Projeto</span>
+                <span class="profession">Interdisciplinar</span>
+            </div>
+        </div>
+
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <li class="search-box">
+                <i class='bx bx-search icon' style="color: black;"></i>
+                <input type="text" placeholder="Search...">
+            </li>
+
+            <ul class="menu-links">
+
+                {% if not request.user.is_authenticated %}
+
+                <li class="nav-link">
+                    <a href="{% url 'index' %}">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Pág Inicial</span>
+                    </a>
+                </li>
+
+                {% else %}
+
+                <li class="nav-link">
+                    <a href="{% url 'home' %}">
+                        <i class='bx bxs-book-bookmark icon'></i>
+                        <span class="text nav-text">Questões</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{% url 'view_score' %}">
+                        <i class='bx bx-bell icon'></i>
+                        <span class="text nav-text">Sua pontuação</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            {% if request.user.is_authenticated %}
+            <li class="nav-link">
+                <a href="{% url 'logout_attempt' %}">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="nav-link">
+                <a href="{% url 'login_attempt' %}">
+                    <i class='bx bx-log-in icon'></i>
+                    <span class="text nav-text">Login</span>
+                </a>
+            </li>
+            {% endif %}
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+
+        </div>
+    </div>
+</nav>
+<section class="home">

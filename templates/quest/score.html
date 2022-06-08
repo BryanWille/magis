@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block titulo %}PONTUAÇÃO{% endblock %}
+{% block conteudo %}
+
+
+<link rel="stylesheet" href="/static/css/score.css">
+<h1>Pontuação</h1>
+<div id="div-score">
+    <ul class="list-group">
+        {% for s in score %}
+        <li id="lista-scores">
+            <div id="score-aluno">
+                <p id="num-score">{{s.score}}</p>
+                <p id="nome-materia"> - {{s.course.course_name}}</p>
+            </div>
+        </li>
+        {% endfor %}
+        {% if score %}
+        {% else %}
+        <p class="text-center mt-5">You haven't given any exam yet.</p>
+        <a class="btn btn-dark" href="/">Enviar questionario</a>
+        {% endif %}
+    </ul>
+</div>
+
+
+
+{% endblock %}
