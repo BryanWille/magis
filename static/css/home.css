@@ -93,9 +93,6 @@ h4 {
     transform: scale(1.25);
 }
 
-span>i {
-    padding-top: 70px;
-}
 
 .main-content-1:hover,
 .main-content-2:hover {
@@ -120,16 +117,36 @@ span>i {
     filter: var(--filter);
 }
 
-.btn-carrosel{
+.btn-carrosel {
     display: flex;
 
     justify-content: center;
-  
+
     align-items: center;
 }
 
-.btn-carrosel > p{
+.btn-carrosel>p {
     text-align: center;
     font-size: 25px;
     color: white;
+}
+
+.swiper {
+    margin-top: 40px;
+}
+
+#img-notebook {
+    height: auto;
+    width: 800px;
+}
+
+#home-txt {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding-right: 300px;
+    font-size: 20px;
+    text-align: justify;
 }
