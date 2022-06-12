@@ -4,55 +4,64 @@
 
 <link rel="stylesheet" href="/static/css/home.css">
 
-<h1>Secular</h1>
 
-{% include 'caroussel.html' %}
-<hr>
 
-<div class="row">
-    <div class="col-5">
-        <img src="/static/img/notebook-img.png" id="img-notebook" alt="">
-    </div>
-    <div class="col-7 ml-0">
-        <div class="row">
-            <div class="col-12">
-                <div id="home-txt">
-                    <p>Você anda com medo de suas provas ou não entende sua matéria? Venha conosco, aqui na Secular você
-                        ira
-                        provar todo o seu conhecimento, provar também de uma vez por todas de sua capacidade e assim,
-                        sentir-se
-                        seguro para realizar suas devidas necessidades. Atualmente contamos com mais de 200 perguntas
-                        prontas,
-                        com diversas matérias cadastradas, onde nosso cliente terá uma grande experiência de aprendizado
-                        e
-                        prática! Navegue conosco</p>
-                </div>
-            </div>
+<div class="area">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="context">
+    <h1>Secular</h1>
+    
+    {% include 'caroussel.html' %}
+    <hr>
+    
+    <div class="row">
+        <div class="col-5">
+            <img src="/static/img/notebook-img.png" id="img-notebook" alt="">
         </div>
-        <div class="row nomargin nopadding">
-            <div class="col-4 nomargin nopadding">
-                <div class="link-1 click-link">
-                    <a href="{% url 'index' %}">
-                        <p>Página 1</p>
-                    </a>
+        <div class="col-7 ml-0">
+            <div class="row">
+                <div class="col-12">
+                    <div id="home-txt">
+                        <p>Você anda com medo de suas provas ou não entende sua matéria? Venha conosco, aqui na Secular você
+                            irá provar todo o seu conhecimento. Atualmente contamos com mais de 200 perguntas prontas,
+                            com diversas matérias cadastradas, onde nosso cliente terá uma grande experiência de aprendizado
+                            e prática! Navegue conosco</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-4 nomargin nopadding">
-                <div class="link-2 click-link">
-                    <a href="{% url 'index' %}">
+            <div class="row nomargin nopadding">
+                <div class="col-4 nomargin nopadding">
+                    <a href="{% url 'index' %}" class="link-2 click-link" style="display:block">
                         <p>Página 2</p>
                     </a>
                 </div>
-            </div>
-            <div class="col-4 nomargin nopadding">
-                <div class="link-3 click-link">
-                    <a href="{% url 'home' %}">
-                        <p>Página 3</p>
-                    </a>
+                <div class="col-4 nomargin nopadding">
+                        <a href="{% url 'index' %}" class="link-2 click-link" style="display:block">
+                            <p>Página 2</p>
+                        </a>
+                </div>
+                <div class="col-4 nomargin nopadding">
+                        <a href="{% url 'index' %}" class="link-3 click-link" style="display:block">
+                            <p>Página 3</p>
+                        </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 {% endblock conteudo %}
