@@ -13,7 +13,9 @@
     --invert-text: white;
     --body-color: rgb(252, 252, 252);
     --sidebar-color: var(--contrast-color);
+    --darker-sidebar-color: #aa0b0b;
     --primary-color: white;
+    --contrast-bg-color: rgb(240, 240, 240);
     --primary-color-light: var(--darker-color);
     --toggle-color: white;
     --text-color: #fff;
@@ -37,6 +39,7 @@ body.dark {
     --invert-text: black;
     --body-color: #3a3b3c;
     --sidebar-color: #DFDFDF;
+    --darker-sidebar-color:#cccccc;
     --primary-color: #3a3b3c;
     --primary-color-light: #F6F5FF;
     --toggle-color: #fff;
@@ -47,6 +50,7 @@ body.dark {
     --ndegrade-1: #5b6467;
     --ndegrade-2: #8b939a;
     --filter: grayscale(100%);
+    --contrast-bg-color: #2C2C2C;
 
 }
 

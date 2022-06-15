@@ -5,42 +5,73 @@ p {
 h1 {
     color: var(--main-text-color);
     font-size: 60px;
-    margin: 70px 0px;
+    margin: 50px 0px;
     text-align: center;
 }
 
 #div-score {
     border: 3px solid var(--main-text-color);
     margin: auto;
-    width: fit-content;
-    padding: 30px 50px;
+    width: 80vw;
+    height: 35vw;
+    background-color: var(--contrast-bg-color);
 }
 
+.centralizar-materias{
+    width: 80vw;
+    height: 31.5vw;
+    overflow: auto;
+    position: absolute;
+    left: 50%; /* relative to nearest positioned ancestor or body element */
+    top: 53%; /*  relative to nearest positioned ancestor or body element */
+    transform: translate(-50%, -50%);
+}
 
 #lista-scores {
     margin: auto;
     list-style: none;
-    font-size: 20px;
+    font-size: 45px;
     padding: 0px;
     border-radius: 6px;
-    margin: 7px;
-    border: 2px solid var(--main-text-color);
-    ;
-    width: 500px;
+    margin-bottom: 70px;
+    border: 2px solid var(--main-text-color);;
+    background-color: rgb(212, 212, 212);
+    width: 70vw;
 }
 
 #num-score {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
+    font-size: 45px;
     text-align: center;
-    background-color: var(--sidebar-color);
+    background-color: #c70e0e;
+    border-radius: 3px;
+    width: 80px;
+    display: inline-block;
+
+}
+
+
+#nome-materia {
+    color: black;
     border-radius: 3px;
 }
 
-#nome-materia {
-    display: inline;
-    color: var(--main-text-color);
-    background-color: var(--body-color);
-    border-radius: 3px;
-}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--sidebar-color);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:active { 
+    background-color: var(--darker-sidebar-color);
+} 

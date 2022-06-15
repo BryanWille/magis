@@ -4,23 +4,29 @@
 
 
 <link rel="stylesheet" href="/static/css/score.css">
-<h1>Pontuação</h1>
+<h1>Suas pontuações</h1>
 <div id="div-score">
-    <ul class="list-group">
-        {% for s in score %}
-        <li id="lista-scores">
-            <div id="score-aluno">
-                <p id="num-score">{{s.score}}</p>
-                <p id="nome-materia"> - {{s.course.course_name}}</p>
-            </div>
-        </li>
-        {% endfor %}
-        {% if score %}
-        {% else %}
-        <p class="text-center mt-5">You haven't given any exam yet.</p>
-        <a class="btn btn-dark" href="/">Enviar questionario</a>
-        {% endif %}
-    </ul>
+    <div class="centralizar-materias">
+        <ul class="list-group">
+
+            {% for s in score %}
+
+            <li id="lista-scores">
+                <div id="score-aluno">
+                    <span id="num-score">{{s.score}}</span>
+                    <span id="nome-materia">{{s.course.course_name}}</span>
+                </div>
+            </li>
+
+            {% endfor %}
+            {% if score %}
+            {% else %}
+            <p class="text-center mt-5">Você não respondeu a nenhum teste ainda.</p>
+            <a class="btn btn-dark" href="/">Enviar questionario</a>
+            {% endif %}
+        </ul>
+    </div>
+</div>
 </div>
 
 
