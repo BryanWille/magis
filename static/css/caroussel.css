@@ -67,3 +67,7 @@ body {
 #texto-curso{
   color: var(--text-color);
 }
+
+#texto-curso:hover {
+  color: white;
+}

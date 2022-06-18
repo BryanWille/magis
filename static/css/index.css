@@ -32,6 +32,10 @@ h1 {
     color: var(--sidebar-color);
 }
 
+img {
+    filter: var(--filter);
+}
+
 .texto {
     padding: 0px 100px;
     margin: 0px 0px 0px auto;
@@ -89,21 +93,21 @@ p {
 }
 
 .btn-join {
-    background-color: var(--sidebar-color);
+    background-color: var(--contrast-color-btn);
     color: var(--text-color);
 }
 
 .btn-join:hover {
-    color: var(--sidebar-color);
-    background-color: var(--text-color);
+    color: var(--contrast-color-btn);
+    background-color: white;
 }
 
 .btn-join a {
-    color: var(--invert-text);
+    color: white;
 }
 
 .botao:hover > a{
-    color: var(--sidebar-color);
+    color: var(--contrast-color-btn);
 }
 
 @media (max-width: 1850px) { 
