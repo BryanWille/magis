@@ -1,9 +1,10 @@
+from multiprocessing import context
 from django.shortcuts import render, redirect
 from .models import *
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-from django.contrib.auth.decorators import login_required
+import random 
 
 
 
@@ -11,10 +12,45 @@ def home(request):
     if request.user.is_authenticated:
         courses = Course.objects.all()
         context = {'courses': courses}
+        if request.GET.get('course'):
+            return redirect(f"/quiz/?course={request.GET.get('course')}")
+
         return render(request, 'quest/home.html', context)
     else:
         return redirect('login_attempt')
 
+def quiz(request):
+    courses = request.GET.get('course')
+    context = {'course' : courses}
+    return render (request, 'quest/quiz1.html', context)
+
+
+def get_quiz(request):
+    try:
+        question_objs = Question.objects.all()
+
+        if request.GET.get('course'):
+            question_objs = question_objs.filter(course__course_name__icontains=request.GET.get('course'))
+
+        question_objs = list(question_objs)
+        data = []
+        random.shuffle(question_objs)
+        for question_obj in question_objs:
+            
+            data.append({
+                "uid" : question_obj.uid,
+                "course" : question_obj.course.course_name,
+                "question" : question_obj.question,
+                "marks" : question_obj.marks,
+                "answers" : question_obj.get_answers()
+            })
+
+        payload = {'status': True, 'data': data}
+
+        return JsonResponse(payload)  
+    except Exception as e:
+        print (e)
+    return HttpResponse("Algo deu errado!") 
 
 def api_question(request, id):
     if request.user.is_authenticated:

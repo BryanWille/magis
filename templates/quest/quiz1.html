@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block titulo %}QUESTÕES1{% endblock %}
+{% block conteudo %}
+
+
+<link rel="stylesheet" href="/static/css/quiz.css">
+
+<div class="principal">
+    <div>
+        <h1 class="title">questões</h1>
+    </div>
+
+
+
+    <div id="app" class="mt-5 pt-5">
+
+        <div class="quest">
+            <form @submit.prevent="handleSubmit()">
+
+                <div id="question" v-for="(question,index) in questions" :key="question.id" class="mt-5">
+                    <div class="card">
+                        <div id="card1">Questão [[index + 1]]</div>
+                    </div>
+                    <p>[[question.question]]</p>
+                    <img src="{{ questions.imagem.url }}" alt="{{ question.nome }}">
+                    <div id="p" v-for="answer in question.answers">
+                        <input :id="'radio-'+question.id" @change="checkAnswer($event, question.uid)" type="radio"
+                            :value="answer.answer" :name="'answer-'+question.id">
+                        [[answer.answer]]
+                    </div>
+                    <p :id="'show_message-'+question.id"></p>
+                </div>
+                <!--div questões-->
+                <button class="btn" type="submit">Enviar</button>
+            </form><!-- fim form-->
+        </div>
+        <!--fim quest-->
+    </div>
+
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data() {
+                return {
+                    course : '{{course}}',
+                    questions: [], 
+                }
+            },
+            methods: {
+                getQuestions(){
+                    var _this = this
+                    fetch(`/quest/api/get-quiz/?course=${this.course}`)
+                    .then(response => response.json())
+                    .then(result =>{
+                        console.log(result)
+                        _this.questions = result.data
+                    })
+                },
+                checkAnswer(event, uid){
+                    this.questions.map(question=>{
+                        answers = question.answers
+                        for(var i=0; i < answers.length; i++){
+                            if(answers[i].answer == event.target.value){
+                                if(answers[i].is_correct){
+                                    console.log('Sua resposta está correta')
+                                    alert('Sua resposta está correta')
+                                }else{
+                                    console.log('Sua resposta está incorreta')
+                                    alert('Sua resposta está incorreta')
+                                }
+                            }
+                        }
+                    })
+
+
+                    console.log(event.target.value, uid)
+                }
+            },
+            created() {
+                this.getQuestions()
+                console.log('Page Loaded')
+            },
+        });
+
+    </script>
+{% endblock %}

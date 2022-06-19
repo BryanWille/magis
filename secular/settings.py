@@ -27,7 +27,9 @@ INSTALLED_APPS = [
 
     'main',
     'questions',
-    'accounts'
+    'accounts',
+    'stdimage',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

@@ -5,7 +5,7 @@
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
     {% for course in courses %}
-    <a href="{{course.id}}" class="swiper-slide btn btn-primary btn-carrosel">
+    <a href="quiz/?course={{course}}" class="swiper-slide btn btn-primary btn-carrosel">
       <p id="texto-curso">{{course.course_name}}</p>
     </a>
     {% endfor %}
