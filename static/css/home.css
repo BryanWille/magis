@@ -84,7 +84,7 @@ h4 {
 
 .btn-carrosel {
     display: inline-block;
-    background-color: var(--sidebar-color);
+    background-color: var(--contrast-color-btn);
     width: 250px;
     height: 130px;
     border-radius: 10px;
@@ -93,9 +93,14 @@ h4 {
 
 
 .btn-carrosel:hover {
-    background-color: var(--sidebar-color);
+    background-color: var(--contrast-color-btn);
     filter: brightness(130%);
     transform: scale(1.25);
+    color: white;
+}
+
+.btn-carrosel:hover p{
+    color: white;
 }
 
 
@@ -166,7 +171,7 @@ h4 {
     transform: translate(-50%, -50%);
     height: 130px;
     width: 270px;
-    background-color: #91BBF2;
+    background-color: var(--contrast-color-btn);
     border-radius: 10px;
 }
 
@@ -182,7 +187,7 @@ h4 {
 
 .click-link::after{
     transition: opacity 1s ease;
-    background: linear-gradient(45deg, #36D8FF, #00acee, #66757f);
+    background: linear-gradient(45deg, var(--contrast-color-btn), var(--contrast-color-btn-dg), #66757f);
 }
 
 .click-link:hover{
@@ -192,10 +197,6 @@ h4 {
 #hr-carousel{
     margin: 30px 0px;
     padding: 0px 10px;
-}
-
-hr{
-
 }
 
 /* ------------------- */
@@ -243,7 +244,7 @@ body {
     list-style: none;
     width: 20px;
     height: 20px;
-    background: #91BBF2;
+    background: var(--contrast-color-btn-dg);
     animation: animate 25s linear infinite;
     bottom: -150px;
 
@@ -341,4 +342,8 @@ body {
         border-radius: 50%;
     }
 
+}
+
+img {
+    filter: var(--filter);
 }

@@ -25,8 +25,9 @@
     --degrade-2: #a71d31;
     --ndegrade-1: #000000;
     --ndegrade-2: #414141;
-    --filter: grayscale(0%);
-
+    --filter: grayscale(10%);
+    --contrast-color-btn: #374F8E;
+    --contrast-color-btn-dg: #4b66aa;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -51,6 +52,8 @@ body.dark {
     --ndegrade-2: #8b939a;
     --filter: grayscale(100%);
     --contrast-bg-color: #2C2C2C;
+    --contrast-color-btn: #121A2E;
+    --contrast-color-btn-dg: #585858;
 
 }
 
