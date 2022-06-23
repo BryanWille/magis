@@ -25,7 +25,6 @@ admin.site.register(ScoreBoard)
 teacher_site = TeacherAdminArea(name='TeacherAdmin')
 teacher_site.register(Course)
 teacher_site.register(Question, QuestionAdmin)
-teacher_site.register(Answer)
 
 student_site = StudentAdminArea(name='StudentAdmin')
 student_site.register(Question, QuestionAdmin)
