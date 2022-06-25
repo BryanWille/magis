@@ -63,11 +63,3 @@ body {
   color: white;
 
 }
-
-#texto-curso{
-  color: var(--text-color);
-}
-
-#texto-curso:hover {
-  color: white;
-}
