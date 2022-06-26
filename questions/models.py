@@ -1,7 +1,7 @@
 import random
 import uuid
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import Users
 from stdimage.models import StdImageField
 
 class BaseModel(models.Model):
@@ -55,5 +55,5 @@ class Answer(BaseModel):
 
 class ScoreBoard(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
     score = models.IntegerField()
