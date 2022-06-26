@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block titulo %}QUESTÕES1{% endblock %} 
+{% block titulo %}QUESTÕES1{% endblock %}
 {% block conteudo %}
 {% load static %}
 
@@ -13,28 +13,18 @@
   <div id="app" class="mt-5 pt-5">
     <div class="quest">
       <form @submit.prevent="handleSubmit()">
-        <div
-          id="question"
-          v-for="(question,index) in questions"
-          :key="question.id"
-          class="mt-5"
-        >
+        <div id="question" v-for="(question,index) in questions" :key="question.uid" class="mt-5">
           <div class="card">
             <div id="card1">Questão [[index + 1]]</div>
           </div>
           <p>[[question.question]]</p>
           <img class="card-img-top" src="{{ questions.image.url }}" />
           <div id="p" v-for="(answer, i) in question.answers">
-            <input
-              :id="'radio-'+question.id"
-              @change="checkAnswer(index, i,question.id ,$event, question.uid)"
-              type="radio"
-              :value="answer.answer"
-              :name="'answer-'+question.id"
-              />
+            <input :id="'radio-'+question.uid" @change="checkAnswer($event, question.uid)" type="radio"
+              :value="answer.answer" :name="'answer-'+question.uid" />
             [[answer.answer]]
           </div>
-          <p :id="'show_message-'+question.id"></p>
+          <p :id="'show_message-'+question.uid"></p>
         </div>
         <!--div questões-->
         <button class="btn" type="submit">Enviar</button>
@@ -53,45 +43,11 @@
       data() {
         return {
           course: "{{course}}",
-          course_id: "{{id}}",
+          course_id: '{{id}}',
           questions: [],
-          solutions: []
         };
       },
       methods: {
-        check(question_index, option_index, id) {
-          var question = this.questions[question_index];
-          var element = document.getElementById(`show_message-${id}`);
-
-          var radios = document.querySelectorAll(`#radio-${id}`);
-          for (var i = 0; i < radios.length; i++) {
-            radios[i].disabled = true;
-          }
-
-          var solution = {
-            question_id: id,
-            option: option_index + 1,
-          };
-          this.solutions.push(solution);
-        },
-        handleSubmit() {
-          fetch("api/check_score", {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              data: JSON.stringify(this.solutions),
-              course_id: this.course_id,
-            }),
-          })
-            .then((res) => res.json())
-            .then((result) => {
-              console.log(result);
-              window.location = "view_score";
-            });
-        },
         getQuestions() {
           var _this = this;
           fetch(`/quest/api/get-quiz/?course=${this.course}`)
@@ -102,30 +58,60 @@
             });
         },
         checkAnswer(event, uid) {
+          var element = document.getElementById(`show_message-${uid}`)
           this.questions.map((question) => {
             answers = question.answers;
             for (var i = 0; i < answers.length; i++) {
               if (answers[i].answer == event.target.value) {
                 if (answers[i].is_correct) {
-                  console.log("Sua resposta está correta");
-                  alert("Sua resposta está correta");
+                  element.classList = "text-success mt-3"
+                  element.innerHTML = 'Resposta correta'
                 } else {
-                  console.log("Sua resposta está incorreta");
-                  alert("Sua resposta está incorreta");
+                  element.classList = "text-danger mt-3"
+                  element.innerHTML = 'Resposta incorreta'
                 }
               }
             }
           });
 
-          console.log(event.target.value, uid);
+          //console.log(event.target.value, uid);
         },
+        handleSubmit() {
+
+          fetch('/quest/api/check_score', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              data: JSON.stringify(this.solutions),
+              course_id: this.course_id
+            })
+          })
+            .then(res => res.json())
+            .then(result => {
+              console.log(result)
+              //window.location = 'quest/view_score'
+            })
+
+        }
       },
       created() {
         this.getQuestions();
         console.log("Page Loaded");
       },
+      mounted() {
+
+        fetch(`/quest/api/${this.course_id}`)
+          .then(res => res.json())
+          .then(result => {
+            this.questions = result
+
+          })
+      }
     });
   </script>
-  
+
 </div>
 {% endblock conteudo%}
