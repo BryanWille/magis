@@ -39,6 +39,13 @@
                 {% else %}
 
                 <li class="nav-link">
+                    <a href="{% url 'index' %}">
+                        <i class='bx bx-home icon' ></i>
+                        <span class="text nav-text">Pág. Inicial</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
                     <a href="{% url 'home' %}">
                         <i class='bx bxs-book-bookmark icon'></i>
                         <span class="text nav-text">Questões</span>
@@ -46,11 +53,31 @@
                 </li>
 
                 <li class="nav-link">
+                    <a href="{% url 'index' %}">
+                        <i class='bx bx-book-add icon'></i>
+                        <span class="text nav-text">Enviar Questões</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
                     <a href="{% url 'view_score' %}">
-                        <i class='bx bx-bell icon'></i>
+                        <i class='bx bx-trophy icon'></i>
                         <span class="text nav-text">Sua pontuação</span>
                     </a>
                 </li>
+
+                <li class="nav-link">
+                    <a href="{% url 'sobre' %}">
+                        <i class='bx bx-group icon'></i>
+                        <span class="text nav-text">Sobre Nós</span>
+                    </a>
+                </li>
+
+                
+                
+
+            
+
                 {% endif %}
             </ul>
         </div>
