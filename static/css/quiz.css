@@ -50,7 +50,7 @@ p {
 
 #question {
     background-color: rgba(250, 225, 225, 0.712);
-    border-radius: 0px 0px 40px 0px;
+    border-radius: 10px;
     border: 2px solid var( --sidebar-color);
 
 }
@@ -96,14 +96,12 @@ p {
 }
 
 .card{
-    border-radius: 00px;    
+    
     color: #fff;
     background-color: var(--sidebar-color);
 }
-#card1{
-    margin-left: 0px;
-    border-radius: 50px;
-}
+#card1{margin-left: 15px;}
+
 .final{
     position: absolute;
     bottom: 0;

@@ -2,33 +2,141 @@
 {% block titulo %}PONTUAÇÃO{% endblock %}
 {% block conteudo %}
 
-
 <link rel="stylesheet" href="/static/css/score.css">
-<h1>Suas pontuações</h1>
-<div id="div-score">
-    <div class="centralizar-materias">
-        <ul class="list-group">
 
-            {% for s in score %}
+<style>
+    /* ANIMAÇÃO DE FUNDO CSS */
 
-            <li id="lista-scores">
-                <div id="score-aluno">
-                    <span id="num-score">{{s.score}}</span>
-                    <span id="nome-materia">{{s.course.course_name}}</span>
-                </div>
-            </li>
+    body {
+        overflow: hidden;
+    }
 
-            {% endfor %}
-            {% if score %}
-            {% else %}
-            <p class="text-center mt-5">Você não respondeu a nenhum teste ainda.</p>
-            <a class="btn btn-dark" href="/">Enviar questionario</a>
-            {% endif %}
-        </ul>
+    .conteudo-animacao {
+        background-color: var(--body-color);
+        height: 100vh;
+    }
+
+    .box ul li {
+        position: relative;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 0.9em;
+        margin-right: 0.9em;
+        margin-bottom: 1.2em;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0.9em solid var(--score-color);
+        border-left: 0.3em solid transparent;
+        list-style: none;
+        opacity: 0;
+        bottom: 0;
+        left: 10vw;
+        animation: animate 15s linear infinite;
+        z-index: 0;
+    }
+
+    .box ul li:before,
+    .box ul li:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0.6em;
+        left: -1em;
+        border-right: 1em solid transparent;
+        border-bottom: 0.9em solid var(--score-color);
+        border-left: 1em solid transparent;
+        transform: rotate(-35deg);
+    }
+
+    .box ul li:after {
+        transform: rotate(35deg);
+    }
+
+    .box ul li:nth-child(2) {
+        left: 36vw;
+        animation-delay: 2s;
+    }
+
+    .box ul li:nth-child(3) {
+        left: 22vw;
+        animation-delay: 4s;
+    }
+
+    .box ul li:nth-child(4) {
+        left: 56vw;
+        animation-delay: 6s;
+    }
+
+    .box ul li:nth-child(5) {
+        left: 76vw;
+        animation-delay: 4s;
+    }
+
+    .box ul li:nth-child(6) {
+        left: 80vw;
+        animation-delay: 8s;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: scale(0) rotate(0);
+            opacity: 1;
+            bottom: 0;
+        }
+
+        100% {
+            transform: scale(5) rotate(360deg);
+            opacity: 0.09;
+            bottom: 100vh;
+        }
+    }
+    #div-score{
+        z-index: 3;
+    }
+</style>
+
+<img id="bola" src="/static/img/half-ball.png" alt="Bola vermelha no primeiro quadrante">
+
+<div class="conteudo-animacao">
+    <h1>Suas pontuações</h1>
+    <div id="div-score">
+        <div class="centralizar-materias">
+            <ul class="list-group">
+
+                {% for s in score %}
+
+                <li id="lista-scores">
+                    <div id="score-aluno">
+                        <span id="num-score">{{s.score}}</span>
+                        <span id="nome-materia">{{s.course.course_name}}</span>
+                    </div>
+                </li>
+
+                {% endfor %}
+                {% if score %}
+                {% else %}
+                <p class="text-center mt-5">Você não respondeu a nenhum teste ainda.</p>
+                <a class="btn btn-dark" href="/">Enviar questionario</a>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </div>
+
 </div>
 
+<div class="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
 
 
 {% endblock %}

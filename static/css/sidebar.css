@@ -10,6 +10,7 @@
 
 :root {
     /* ===== Colors ===== */
+    --score-color: rgb(235, 235, 5);
     --invert-text: white;
     --body-color: rgb(252, 252, 252);
     --sidebar-color: var(--contrast-color);
@@ -54,7 +55,7 @@ body.dark {
     --contrast-bg-color: #2C2C2C;
     --contrast-color-btn: #121A2E;
     --contrast-color-btn-dg: #585858;
-
+    --score-color: var(--sidebar-color);
 }
 
 

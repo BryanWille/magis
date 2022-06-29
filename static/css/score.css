@@ -1,77 +1,96 @@
 p {
-    margin: 0px;
+  margin: 0px;
 }
 
 h1 {
-    color: var(--main-text-color);
-    font-size: 60px;
-    margin: 50px 0px;
-    text-align: center;
+  color: var(--main-text-color);
+  font-size: 60px;
+  margin: 5vh 0px;
+  text-align: center;
 }
 
 #div-score {
-    border: 3px solid var(--main-text-color);
-    margin: auto;
-    width: 80vw;
-    height: 35vw;
-    background-color: var(--contrast-bg-color);
+  border: 3px solid var(--main-text-color);
+  margin: auto;
+  width: 80vw;
+  height: 35vw;
+  z-index: 99;
+  background-color: var(--contrast-bg-color);
+  position: relative;
+  opacity: 0.9;
 }
 
-.centralizar-materias{
-    width: 80vw;
-    height: 31.5vw;
-    overflow: auto;
-    position: absolute;
-    left: 50%; /* relative to nearest positioned ancestor or body element */
-    top: 53%; /*  relative to nearest positioned ancestor or body element */
-    transform: translate(-50%, -50%);
+.centralizar-materias {
+  opacity: 1;
+  width: 80vw;
+  height: 31.5vw;
+  overflow: auto;
+  position: absolute;
+  left: 50%;
+  /* relative to nearest positioned ancestor or body element */
+  top: 53%;
+  /*  relative to nearest positioned ancestor or body element */
+  transform: translate(-50%, -50%);
+  z-index: 3;
 }
 
 #lista-scores {
-    margin: auto;
-    list-style: none;
-    font-size: 45px;
-    padding: 0px;
-    border-radius: 6px;
-    margin-bottom: 70px;
-    border: 2px solid var(--main-text-color);;
-    background-color: rgb(212, 212, 212);
-    width: 70vw;
+  margin: auto;
+  list-style: none;
+  font-size: 45px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-bottom: 70px;
+  border: 2px solid var(--main-text-color);
+  ;
+  background-color: rgb(212, 212, 212);
+  width: 70vw;
 }
 
 #num-score {
-    font-size: 45px;
-    text-align: center;
-    background-color: #c70e0e;
-    border-radius: 3px;
-    width: 80px;
-    display: inline-block;
+  font-size: 45px;
+  text-align: center;
+  background-color: #c70e0e;
+  border-radius: 3px;
+  width: 80px;
+  display: inline-block;
 
 }
 
 
 #nome-materia {
-    color: black;
-    border-radius: 3px;
+  color: black;
+  border-radius: 3px;
 }
 
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: var(--sidebar-color);
-  }
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--sidebar-color);
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
 
 
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--sidebar-color);
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:active { 
-    background-color: var(--darker-sidebar-color);
-} 
+*::-webkit-scrollbar-thumb {
+  background-color: var(--sidebar-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--darker-sidebar-color);
+}
+
+#bola {
+  width: 30%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  color: var(--sidebar-color);
+}
