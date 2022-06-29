@@ -3,23 +3,32 @@
 {% block conteudo %}
 
 
-<div class="container mt-5">
+<link rel="stylesheet" href="/static/css/score.css">
+<h1>Suas pontuações</h1>
+<div id="div-score">
+    <div class="centralizar-materias">
+        <ul class="list-group">
 
-    <ul class="list-group">
-        <li class="list-group-item active">Pontuação</li>
-        {% for s in score %}
-        <li class="list-group-item ">{{s.score}} - {{s.course.course_name}}</li>
+            {% for s in score %}
 
-        {% endfor %}
-        {% if score %}
-        {% else %}
-        <p class="text-center mt-5">You haven't given any exam yet.</p>
-        <a class="btn btn-dark" href="/">Enviar questionario</a>
-        {% endif %}
-    </ul>
+            <li id="lista-scores">
+                <div id="score-aluno">
+                    <span id="num-score">{{s.score}}</span>
+                    <span id="nome-materia">{{s.course.course_name}}</span>
+                </div>
+            </li>
 
-
+            {% endfor %}
+            {% if score %}
+            {% else %}
+            <p class="text-center mt-5">Você não respondeu a nenhum teste ainda.</p>
+            <a class="btn btn-dark" href="/">Enviar questionario</a>
+            {% endif %}
+        </ul>
+    </div>
 </div>
+</div>
+
 
 
 {% endblock %}

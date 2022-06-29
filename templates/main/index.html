@@ -1,2 +1,46 @@
 {% extends "base.html" %}
-<h1>ola</h1>
+{% block titulo %}Projeto Interdisciplinar{%endblock titulo%}
+{% block conteudo %}
+<link rel="stylesheet" href="static/css/index.css">
+
+<img id="bola" src="/static/img/half-ball.png" alt="Bola vermelha no terceiro quadrante">
+<h1>Secular</h1>
+<div class="titulo"></div>
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9" id="image-aluno">
+            <img src="/static/img/index-img.png" alt="Desenho de alunos">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 texto">
+            <div id="texto-principal">
+                <h2>Venha revolucionar a forma de se preparar para aquela prova </h2>
+                <h3>importante!</h3>
+            </div>
+            <p>
+                Somos a mais nova ferramenta de preparo para concursos e estudos agregativos no geral. Possuímos um
+                banco de
+                questões essenciais inseridas por profissionais e estudantes da área. Além de tudo isso, você consegue
+                acompanhar seu desempenho através do ranking pessoal em seu próprio login.
+            </p>
+            <div class="banner-btn">
+                <!-- https://getbootstrap.com.br/docs/4.1/components/buttons/ -->
+
+
+                {% if not request.user.is_authenticated %}
+                    <button type="button" class="btn btn-lg btn-dark btn-join botao"><a href="{% url 'login_attempt' %}"
+                        target="_blank">Junte-se</a></button>
+                {% else %}
+                    <button type="button" class="btn btn-lg btn-dark btn-join botao"><a href="{% url 'home' %}"
+                        target="_blank">Junte-se</a></button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</div>
+{% endblock conteudo%}

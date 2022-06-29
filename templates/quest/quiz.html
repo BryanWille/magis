@@ -1,98 +1,103 @@
-{% extends "base.html" %}
-{% block titulo %}QUESTÕES{% endblock %}
+{% extends "base.html" %} 
+{% block titulo %}QUESTÕES{% endblock titulo%} 
 {% block conteudo %}
 
+<link rel="stylesheet" href="/static/css/quiz.css" />
 
-<div id="app" class="mt-5 pt-5">
-    <div class="container">
-        <form @submit.prevent="handleSubmit()">
-            <div v-for="(question,index) in questions" :key="question.id" class="mt-5">
-                <p>[[index + 1]]. [[question.question]]</p>
-                <div v-for="(option , i) in question.options">
-                    <input :id="'radio-'+question.id" @change="check(index , i , question.id)" type="radio"
-                        :value="option" :name="'option-'+question.id">
-                    [[option]]
-                </div>
-                <p :id="'show_message-'+question.id"></p>
-            </div>
+<div class="principal">
+  <div><h1 class="title">questões</h1></div>
 
-            <button class="btn btn-danger" type="submit">Enviar</button>
-        </form>
-
+  <div id="app" class="mt-5 pt-5">
+    <div class="quest">
+      <form @submit.prevent="handleSubmit()">
+        <div
+          id="question"
+          v-for="(question,index) in questions"
+          :key="question.id"
+          class="mt-5"
+        >
+          <div class="card"><div id="card1">Questão [[index + 1]]</div></div>
+          <p>[[question.question]]</p>
+          <div id="p" v-for="(option , i) in question.options">
+            <input
+              :id="'radio-'+question.id"
+              @change="check(index , i , question.id)"
+              type="radio"
+              :value="answer.answer"
+            />
+            [[answer.answer]]
+          </div>
+          <p :id="'show_message-'+question.id"></p>
+        </div>
+        <!--div questões-->
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+      <!-- fim form-->
     </div>
-</div>
+    <!--fim quest-->
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
-<script>
+  <script>
     var app = new Vue({
-        delimiters: ['[[', ']]'],
-        el: '#app',
-        data: {
-            message: 'Hello Vue!',
-            course_id: '{{id}}',
-            questions: [],
-            solutions: []
+      delimiters: ["[[", "]]"],
+      el: "#app",
+      data: {
+        message: "Hello Vue!",
+        course_id: "{{id}}",
+        questions: [],
+        solutions: [],
+      },
+      methods: {
+        greet: function (name) {
+          console.log("Hello from " + name + "!");
         },
-        methods: {
-            greet: function (name) {
-                console.log('Hello from ' + name + '!')
+        check(question_index, option_index, id) {
+          var question = this.questions[question_index];
+          var element = document.getElementById(`show_message-${id}`);
+
+          var radios = document.querySelectorAll(`#radio-${id}`);
+          for (var i = 0; i < radios.length; i++) {
+            radios[i].disabled = true;
+          }
+
+          var solution = {
+            question_id: id,
+            option: option_index + 1,
+          };
+          this.solutions.push(solution);
+        },
+        handleSubmit() {
+          fetch("api/check_score", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
             },
-            check(question_index, option_index, id) {
-                var question = this.questions[question_index]
-                var element = document.getElementById(`show_message-${id}`)
+            body: JSON.stringify({
+              data: JSON.stringify(this.solutions),
+              course_id: this.course_id,
+            }),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+              window.location = "view_score";
+            });
+        },
+      },
 
-                var radios = document.querySelectorAll(`#radio-${id}`)
-                for (var i = 0; i < radios.length; i++) {
-                    radios[i].disabled = true
-                }
-
-                var solution = {
-                    'question_id': id,
-                    'option': option_index + 1
-                }
-                this.solutions.push(solution)
-            },
-            handleSubmit() {
-        
-                fetch('api/check_score', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                       data : JSON.stringify(this.solutions),
-                       course_id : this.course_id
-                    })
-                })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result)
-                window.location = 'view_score'
-            })
-
-        }
-    },
-
-    mounted() {
-
-        fetch(`api/${this.course_id }`)
-            .then(res => res.json())
-            .then(result => {
-                this.questions = result
-
-            })
-
-    }
+      mounted() {
+        fetch(`/quest/api/get-quiz/?course=${this.course}`)
+          .then((res) => res.json())
+          .then((result) => {
+            this.questions = result;
+          });
+      },
     });
-</script>
+  </script>
 
-{% endblock %}
+  
+</div>
+{% endblock conteudo %}

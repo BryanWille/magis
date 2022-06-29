@@ -1,4 +1,5 @@
 
-
+.cpython-310.pyc
 .venv
 venv/
+.pyc

@@ -1,0 +1,73 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 90%;
+  height: 90%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: var(--sidebar-color);
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 130px;
+  width: 150px;
+}
+
+.swiper-button-next, .swiper-button-prev{
+  color: white;
+  
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--sidebar-color);
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-family: swiper-icons;
+  font-size: 20px;
+
+}
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  font-family: swiper-icons;
+  font-size: 20px;
+  transform: scale(1.3);
+  background-color: var(--darker-color);
+  color: white;
+
+}
+
+#texto-curso{
+  color: var(--text-color);
+}
+
+#texto-curso:hover {
+  color: white;
+}
