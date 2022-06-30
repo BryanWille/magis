@@ -1,16 +1,13 @@
-from tokenize import group
-from unittest import mock
 from django.shortcuts import render, redirect
-from accounts.models import Users
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User, Group
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from accounts.models import Users
 # Create your views here.
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import *
 
-from django.contrib.auth import logout
 
 
 def login_attempt(request):
@@ -54,6 +51,9 @@ def register_attempt(request):
         user.save()
     return render(request, 'auth/register.html')
 
+
+
+
 @receiver(post_save, sender=Users)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -64,3 +64,6 @@ def create_user_profile(sender, instance, created, **kwargs):
 def logout_attempt(request):
     logout(request)
     return redirect('index')
+
+def password_reset_form(request):
+    return render(request, 'auth/password_reset_form.html')

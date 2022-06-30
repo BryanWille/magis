@@ -1,0 +1,92 @@
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+p{
+    text-align: center;
+    font-size: 20px;
+}
+
+
+#formulario-senha {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+
+    color: var(--text-color);
+    background-color: var(--sidebar-color);
+    padding: 50px;
+    border-radius: 20px;
+
+}
+
+
+#botao{
+    font-size: 20px;
+    background-color: white;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color: black;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: fit-content;
+    align-self: center;
+    border: none;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+#botao:hover{
+    background-color: var(--contrast-color-btn);
+    color: white;
+    transform: scale(1.2);
+    -webkit-transition: transform 0.3s ease-in-out;
+}
+
+
+#formulario > p {
+    margin-top: 23px;
+    font-size: 25px;
+}
+
+
+#centralizar{
+    margin: auto;
+    text-align: center;
+}
+
+
+ul{
+    margin: 30px 0px;
+    background-color: var(--darker-sidebar-color);
+    color:  var(--text-color);
+    font-weight: 400;
+    padding: 40px;
+    border-radius: 10px 0px;
+}
+
+li {
+    font-size: 16px;
+}
+
+a{
+    margin-left: 5px;
+    background-color: var(--darker-sidebar-color);
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+}
+
+a:hover{
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+}

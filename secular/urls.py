@@ -7,10 +7,9 @@ from django.conf import settings
 urlpatterns = [
     
     path('admin/', admin.site.urls),
-    # path('teacher-admin/', teacher_site.urls),
-    # path('student-admin/', student_site.urls),
     path('', include('main.urls')),
     path('auth/', include('accounts.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
     path('quest/', include('questions.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
