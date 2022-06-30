@@ -21,6 +21,7 @@
             <div id="card1">Questão [[index + 1]]</div>
           </div>
           <p>[[question.question]]</p>
+          <p>[[question.descricao]]</p>
           <img class="card-img-top" src="{{ questions.image.url }}" />
           <div id="p" v-for="(answer, i) in question.answers">
             <input :id="'radio-'+question.uid" @change="checkAnswer($event, question.uid)" type="radio"

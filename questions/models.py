@@ -2,7 +2,7 @@ import random
 import uuid
 from django.db import models
 from accounts.models import Users
-#from stdimage.models import StdImageField
+from stdimage.models import StdImageField
 
 class BaseModel(models.Model):
     uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -22,8 +22,9 @@ class Course(BaseModel):
 
 class Question(BaseModel):
     course = models.ForeignKey(Course, related_name='course',on_delete=models.CASCADE)
-    question = models.CharField(max_length=500)
-    #image = StdImageField('Image', upload_to="questions",variations={'tumb':(300, 300)}, blank = True)
+    question = models.CharField(max_length=10000)
+    descricao = models.TextField(blank=True)
+    image = StdImageField('Image', upload_to="questions",variations={'tumb':(300, 300)}, blank = True)
     marks = models.IntegerField(default=5)
 
     def __str__(self):
@@ -46,7 +47,7 @@ class Question(BaseModel):
 
 class Answer(BaseModel):
     question = models.ForeignKey(Question, related_name='question_answer',on_delete=models.CASCADE) 
-    answer = models.CharField(max_length=100)
+    answer = models.CharField(max_length=10000)
     is_correct = models.BooleanField(default=False)
 
     def __str__(self):

@@ -3,7 +3,7 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-#import stdimage.models
+import stdimage.models
 import uuid
 
 
@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('create_at', models.DateField(auto_now_add=True)),
                 ('update_at', models.DateField(auto_now=True)),
                 ('question', models.CharField(max_length=500)),
-                #('image', stdimage.models.StdImageField(blank=True, force_min_size=False, upload_to='questions', variations={'tumb': (300, 300)}, verbose_name='Image')),
+                ('image', stdimage.models.StdImageField(blank=True, force_min_size=False, upload_to='questions', variations={'tumb': (300, 300)}, verbose_name='Image')),
                 ('marks', models.IntegerField(default=5)),
                 ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course', to='questions.course')),
             ],

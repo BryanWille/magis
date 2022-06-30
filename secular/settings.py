@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'main',
     'questions',
     'accounts',
+    'stdimage',
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
